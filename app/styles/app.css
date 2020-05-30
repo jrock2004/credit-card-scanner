@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+
 @import "tailwindcss/base";
 
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
 
+.cc-image {
+  left: 8px;
+  top: 29px;
+  width: 40px;
+}
