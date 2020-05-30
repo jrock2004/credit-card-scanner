@@ -50,6 +50,7 @@
       >
         Expiration
       </label>
+      {{!--
       <OneWayDateMask
       	@options={{hash
         	placeholder="MM/YYYY"
@@ -60,6 +61,19 @@
         id="cc-exp"
         name="cc-exp"
         autocompletetype="cc-exp"
+      />
+      --}}
+      <OneWayInputMask
+      @mask="99/9999"
+        @options={{hash
+          placeholder="MM/YYYY"
+          inputFormat="mm/yyyy"
+          showMaskOnFocus=false
+        }}
+        class="p-2 border rounded-sm"
+        id="cc-exp"
+        name="cc-exp"
+        autocomplete="cc-exp"
       />
     </div>
 
