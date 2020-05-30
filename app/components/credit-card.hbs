@@ -1,15 +1,16 @@
 <section>
 	<div class="flex flex-col mb-2">
   	<label
-    	for="card-name"
+    	for="cc-name"
       class="text-sm text-gray-700"
     >
     	Name on card
     </label>
     <input
     	class="p-2 border rounded-sm"
-    	id="card-name"
-      name="cardname"
+    	id="cc-name"
+      name="cc-name"
+      type="text"
       autocomplete="cc-name"
     />
   </div>
@@ -36,7 +37,8 @@
         showMaskOnHover=false
       }}
     	class="py-2 pl-16 pr-2 text-lg border rounded-sm"
-    	id="cc-number"
+    	id="card-number"
+      type="text"
       name="CreditCardNumber"
       autocomplete="cc-number"
     />
@@ -50,24 +52,10 @@
       >
         Expiration
       </label>
-      {{!--
       <OneWayDateMask
       	@options={{hash
         	placeholder="MM/YYYY"
         	inputFormat="mm/yyyy"
-          showMaskOnFocus=false
-        }}
-        class="p-2 border rounded-sm"
-        id="cc-exp"
-        name="cc-exp"
-        autocompletetype="cc-exp"
-      />
-      --}}
-      <OneWayInputMask
-      @mask="99/9999"
-        @options={{hash
-          placeholder="MM/YYYY"
-          inputFormat="mm/yyyy"
           showMaskOnFocus=false
         }}
         class="p-2 border rounded-sm"
@@ -87,14 +75,15 @@
       <input
         class="p-2 border rounded-sm"
         id="card-csc"
-        name="cardcsc"
+        name="cc-csc"
+        type="text"
         autocomplete="cc-csc"
       />
     </div>
 
     <div class="flex flex-col">
     	<label
-        for="card-zipcode"
+        for="postal-code"
         class="text-sm text-gray-700"
       >
         Zip code
@@ -105,7 +94,8 @@
           showMaskOnHover=false
         }}
       	class="p-2 border rounded-sm"
-        id="card-zipcode"
+        id="postal-code"
+        type="text"
         autocomplete="postal-code"
       />
     </div>
