@@ -1,24 +1,8 @@
-<section>
-	<div class="flex flex-col mb-2">
-  	<label
-    	for="cc-name"
-      class="text-sm text-gray-700"
-    >
-    	Name on card
-    </label>
-    <input
-    	class="p-2 border rounded-sm"
-    	id="cc-name"
-      name="cc-name"
-      type="text"
-      autocomplete="cc-name"
-    />
-  </div>
-
+<section class="max-w-68">
   <div class="relative flex flex-col mb-2">
   	<label
     	for="card-number"
-      class="text-sm text-gray-700"
+      class="text-sm font-semibold text-gray-700"
     >
     	Credit card number
     </label>
@@ -37,7 +21,7 @@
         showMaskOnHover=false
         showMaskOnFocus=false
       }}
-    	class="py-2 pl-16 pr-2 text-lg border rounded-sm"
+    	class="w-full py-3 pl-16 pr-2 text-lg border rounded-sm"
     	id="card-number"
       type="text"
       name="CreditCardNumber"
@@ -49,17 +33,18 @@
   	<div class="flex flex-col">
     	<label
         for="card-expire"
-        class="text-sm text-gray-700"
+        class="text-sm font-semibold text-gray-700"
       >
         Expiration
       </label>
       <OneWayDateMask
       	@options={{hash
-        	placeholder="MM/YYYY"
-        	inputFormat="mm/yyyy"
+        	placeholder="MM/YY"
+        	inputFormat="mm/yy"
           showMaskOnFocus=false
         }}
-        class="p-2 border rounded-sm"
+        @placeholder="MM/YY"
+        class="p-3 border rounded-sm"
         id="cc-exp"
         name="cc-exp"
         autocomplete="cc-exp"
@@ -69,15 +54,22 @@
     <div class="flex flex-col">
     	<label
         for="card-expire"
-        class="text-sm text-gray-700"
+        class="text-sm font-semibold text-gray-700"
       >
         CVC
       </label>
-      <input
-        class="p-2 border rounded-sm"
+      <OneWayInputMask
+        @mask={{this.cardCvcMask}}
+        @value={{this.cardCvc}}
+        @update={{this.updateCvc}}
+        @options={{hash
+          placeholder=" "
+        }}
+        class="p-3 border rounded-sm"
         id="card-csc"
         name="cc-csc"
         type="text"
+        integerDigits={{this.cardCvcLength}}
         autocomplete="cc-csc"
       />
     </div>
@@ -85,7 +77,7 @@
     <div class="flex flex-col">
     	<label
         for="postal-code"
-        class="text-sm text-gray-700"
+        class="text-sm font-semibold text-gray-700"
       >
         Zip code
       </label>
@@ -95,7 +87,9 @@
           showMaskOnHover=false
           showMaskOnFocus=false
         }}
-      	class="p-2 border rounded-sm"
+        @update={{this.updateZip}}
+        @value={{this.zipCode}}
+      	class="p-3 border rounded-sm"
         id="postal-code"
         type="text"
         autocomplete="postal-code"
@@ -103,18 +97,27 @@
     </div>
   </div>
 
-  <div class="pt-3 mt-4 border-t">
-  	<a href="#" class="text-sm font-semibold text-green-400">Apply gift code</a>
-	</div>
-
+  <div class="flex flex-col mb-2">
+    <label
+      for="cc-name"
+      class="text-sm font-semibold text-gray-700"
+    >
+      Name on card
+    </label>
+    <input
+      class="w-full p-3 border rounded-sm"
+      id="cc-name"
+      name="cc-name"
+      type="text"
+      autocomplete="cc-name"
+    />
+  </div>
 </section>
 
+{{!--
 <section class="pt-4 mt-10 border-t">
 	<p class="text-sm">
   	By completing booking, you agree to the <a href="#" class="text-green-400">cancellation policy</a> and to make this my default card for all digital and in-person payments.
   </p>
-
-  <button type="button" class="w-full py-2 mt-4 text-lg text-white bg-teal-500 border">
-  	Complete booking
-  </button>
 </section>
+--}}

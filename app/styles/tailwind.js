@@ -6,7 +6,10 @@ module.exports = {
         body: ["Open Sans", "Helvetica", "Arial", "sans-serif"],
       },
       spacing: {
-        "68": "20rem",
+        "68": "461px",
+      },
+      maxWidth: {
+        "68": "461px",
       },
     },
   },

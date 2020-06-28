@@ -27,15 +27,39 @@ export default class CreditCardComponent extends Component {
   @tracked
   cardType = "other";
 
+  @tracked
+  cardCvc = null;
+
+  @tracked
+  zipCode = null;
+
   get creditCardImage() {
     const type = creditCards[this.cardType];
 
     return type ? type : creditCards["other"];
   }
 
+  get cardCvcLength() {
+    return this.cardType === "americanExpress" ? 4 : 3;
+  }
+
+  get cardCvcMask() {
+    return this.cardType === "americanExpress" ? "9999" : "999";
+  }
+
   @action
   update(unmasked, masked, cardType) {
     this.cardNumber = unmasked;
     this.cardType = camelize(cardType);
+  }
+
+  @action
+  updateZip(value) {
+    this.zipCode = value;
+  }
+
+  @action
+  updateCvc(value) {
+    this.cardCvc = value;
   }
 }

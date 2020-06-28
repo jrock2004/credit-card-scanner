@@ -8,6 +8,11 @@
 
 .cc-image {
   left: 8px;
-  top: 29px;
+  top: 34px;
   width: 40px;
+}
+
+.ui-container {
+  border-top: 2px solid;
+  border-top-color: rgb(49, 151, 149);
 }
